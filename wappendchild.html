@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload= function(){
+            let miboton = document.querySelector("button");
+            let misdiv = document.querySelectorAll("div");
+            let seconddiv=document.querySelector(".d2");
+            let body=document.body;
+            let lista=document.createElement("ul");
+
+            lista.textContent="mongus";
+            miboton.addEventListener("click",nuevalista);
+
+            function nuevalista(){
+                seconddiv.appendChild(lista);
+                
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>twjiop</h1>
+    <div class="d1">
+        <ul>
+            <li>Plin</li>
+            <li>plon</li>
+            <li>plin</li>
+        </ul>
+    </div>
+    <div class="d2">
+        <ul>
+            <li>Plin</li>
+            <li>plin</li>
+            <li>plon</li>
+        </ul>
+    </div>
+    <button>play</button>
+</body>
+</html>

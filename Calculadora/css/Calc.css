@@ -1,0 +1,90 @@
+body{
+    background-image: url(../img/imagen.jpg);
+    
+}
+
+#contenedor{
+    width: 700px;
+    margin: 50px auto;
+/*    Solucion de Car */ 
+    background-color:rgb(237, 108, 130);
+    height: 545px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    
+
+}
+
+header{
+    height: 6em;
+    /* border: fuchsia 2px solid; */
+    background-image: url(../img/encabezado.jpg);
+    background-size:cover;
+    
+    
+    
+}
+header span{    
+    
+    vertical-align: baseline;
+}
+#display{
+    background-color: bisque;
+    font-size: 2em;
+    width: 99%;
+    text-align: right;
+    
+}
+
+.boton{
+    width: 100%;
+    background-color: aqua;
+    
+}
+button{
+    width: 33%;
+    height: 40px;
+    border: 1px solid black;
+    float: left;
+    background-color: pink;
+    /* border: 0; */
+    /* outline: none; */
+    border-radius: 50px;
+    transition: background-color 1s ease;
+    transition: font-size 0.25s ease;
+}
+
+button.aritmetica{
+    background-color: rgb(218, 154, 165);
+}
+
+button.aritmetica:hover{
+    border: 2px palevioletred dashed;
+}
+button:hover{
+    background-color: rgb(249, 158, 173);
+    font-size: 150%;
+    
+}
+
+.guardado button{
+    background-color: bisque;
+    width: 20%;
+    border: none;
+    border-right: 1px brown solid;
+    border-radius: 0;
+   
+}
+
+
+.displaymemoria{
+    height: 420px;
+    background-color: aqua;
+    position: relative;
+    top: 40px;
+    overflow: hidden;
+    transition: all 0.7s ease;
+    text-align:right;
+}
+.topright {
+    text-align: right;
+  }

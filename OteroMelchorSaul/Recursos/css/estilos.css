@@ -1,0 +1,23 @@
+
+.divcolor{
+    height: 80px;
+    width: 80px;
+    margin: 10px;
+    display: inline-block;
+    background-color: aqua;
+    
+}
+
+.colorado{
+    border: 1px solid pink;
+    width: 80%;
+    height: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.mitexto{
+    width: 60%;
+}
+
+

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Redio Buttoms con Estilos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/915ba3105a.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-size: 16px;
+            border: none;
+            box-sizing: border-box;
+        }
+        
+        html,
+        body {
+            background: #ccc;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+        }
+        
+        html {
+            display: table;
+        }
+        
+        body {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        
+        #examen {
+            width: calc(100% - 100px);
+            margin: 0 auto;
+            color: black;
+            background-color: black;
+            min-width: 450px;
+        }
+        
+        #examen h1 {
+            color: white;
+            font-weight: 600;
+            font-size: 20px;
+            text-transform: uppercase;
+            text-align: left;
+            line-height: 44px;
+            padding-left: 20px;
+        }
+        
+        #pregunta {
+            width: 100%;
+            padding: 20px;
+            background-color: #FAFAFA;
+        }
+        
+        #pregunta input[type=radio] {
+            display: none;
+        }
+        
+        #pregunta label {
+            display: inline-block;
+            margin: 4px;
+            padding: 8px;
+            background: #FAE3BB;
+            color: #4C3000;
+            min-width: 300px;
+            cursor: pointer;
+        }
+        
+        #pregunta label:hover {
+            background-color: #EBBB67;
+        }
+        
+        #pregunta input[type=radio]:checked+label {
+            background: #CB8306;
+            color: #FAFAFA;
+        }
+
+
+        .midiv{
+            background-color: aqua;
+        }
+    </style>
+
+    <script>
+        window.onload = function() {
+                let preguntas = document.querySelectorAll("#pregunta input[type=radio]");
+                // 
+                let boton =document.querySelector("button");
+                boton.addEventListener("click",corrije)
+                function corrije(){
+                    let eleccion=quienChecked();
+                    if (eleccion=="pregunta3"){
+                        alert("Acertaste");
+                    } else {
+                        alert("Casi");
+                    }
+
+                }
+                // 
+                // Prueba de control por click en la label del radio.
+                for (let pregunta of preguntas) {
+                    pregunta.addEventListener("click", function() {
+                        console.log("Selección por click...." + this.value);
+                    });
+
+                }
+
+                // Prueba de control de checked posterior al proceso. Lo hacemos clicando en el H1
+                document.querySelector("h1").addEventListener("click", quienChecked);
+
+                function quienChecked() {
+                    for (let pregunta of preguntas) {
+                        if (pregunta.checked) {
+                            return pregunta.id;
+                            
+                        }
+                    }
+                }
+                // function quienChecked() {
+                //     for (let pregunta of preguntas) {
+                //         if (pregunta.checked) {
+                //             console.log(`La respuesta seleccionada es...${pregunta.value}`);
+                //         }
+                //     }
+                // }
+
+                // Prueba de control en evento change
+                // for (let pregunta of preguntas) {
+                //     pregunta.addEventListener("change", quienChange);
+                // }
+
+                // function quienChange() {
+                //     let seleccion = document.querySelector("#pregunta input[type=radio]:checked");
+                //     console.log(`Selección por change... ${seleccion.value}`);
+                // }
+
+            } // Final de onload
+    </script>
+</head>
+
+<body>
+    <div id="examen">
+        <h1 id="nombrePregunta">Pequeño cuestionario</h1>
+        <div id="pregunta">
+            <input type="radio" name="pregunta" value="Respuesta a la pregunta1" id="pregunta1">
+            <label for="pregunta1">pregunta1</label>
+            <input type="radio" name="pregunta" value="Respuesta a la pregunta2" id="pregunta2">
+            <label for="pregunta2">pregunta2</label>
+            <input type="radio" name="pregunta" value="Respuesta a la pregunta3" id="pregunta3">
+            <label for="pregunta3">pregunta3</label>
+            <input type="radio" name="pregunta" value="Respuesta a la pregunta4" id="pregunta4">
+            <label for="pregunta4">pregunta4</label>
+        </div>
+        <!--  -->
+        <div>
+            <button>Corregir</button>
+        </div>
+
+
+        <div class="midiv"><i class="fa-brands fa-github"></i></i></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+
+            const display =document.querySelector("input");
+            const digitos = document.querySelectorAll("button");
+
+            digitos[0].addEventListener("click", procesaB1);
+            digitos[1].addEventListener("click", procesaB2);
+            digitos[2].addEventListener("click", procesaB3);
+
+            function  procesaDigito(){
+                display.value=(display.value=="0") ? display.value=this.textContent: display.value=display.value+this.textContent;
+            }
+
+            // function procesaB1(){
+            //     // display.value = (display.value == "0") ? display.value="1": display.value=display.value+"1";
+            //     display.value=(display.value=="0") ? display.value=digitos[0].textContent: display.value=display.value+digitos[0].textContent;
+            // }
+
+            // function procesaB2(){
+            //     display.value = (display.value == "0") ? display.value="2": display.value=display.value+"2";
+            // }
+
+            // function procesaB3(){
+            //     display.value = (display.value == "0") ? digitos.textContent: display.value=display.value+"3";
+                
+                
+            // }
+
+            let x;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" value="0">
+    <br><br>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+</body>
+</html>
