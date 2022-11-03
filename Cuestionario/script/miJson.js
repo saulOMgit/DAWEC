@@ -1,7 +1,8 @@
 let preguntas = [
-    
+    //creamos un objeto
 {
     "categoria":"gaming",
+    //que a su vez tiene otro objeto
     "pregunta":[
             {
                 "pregunta":"¿En que videojuego aparece The Ashen One?",
@@ -27,7 +28,7 @@ let preguntas = [
         ]
 }
 ]
-
+//tenemos que iterar tres veces porque tenemos 2 objetos y un array
 for (let pregunta of preguntas){
     console.log("Categoria "+pregunta.categoria);
    for (let categoria of pregunta.pregunta){
