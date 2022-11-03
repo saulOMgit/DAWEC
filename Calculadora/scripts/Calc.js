@@ -134,6 +134,7 @@ window.onload = function () {
                     divmemoria.style.overflow="hidden";
                 } else{
                     divmemoria.style.overflow="visible";
+                    
                 }
                 break;
             case "MS":
