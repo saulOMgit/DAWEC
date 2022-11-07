@@ -30,6 +30,24 @@ let preguntas = [
                     {"respuesta":"Super Mario Land","correcta":"true"},
                     {"respuesta":"Smash Bros","correcta":"true"},
                     {"respuesta":"Mario Party","correcta":"true"}]
+            },
+            {
+                "modo":"multi",
+                "pregunta":"¿Cuales de estas plataformas pertenecen a Sony?",
+                "respuestas":[{
+                    "respuesta":"PS2","correcta":"true"},
+                    {"respuesta":"PSP","correcta":"true"},
+                    {"respuesta":"PC2","correcta":""},
+                    {"respuesta":"PSX","correcta":"true"}]
+            },
+            {
+                "modo":"simple",
+                "pregunta":"¿Que plataforma es mas vieja?",
+                "respuestas":[{
+                    "respuesta":"PSX","correcta":""},
+                    {"respuesta":"PolyStation","correcta":""},
+                    {"respuesta":"MexBox","correcta":""},
+                    {"respuesta":"NES","correcta":"true"}]
             }
         ]
 },
