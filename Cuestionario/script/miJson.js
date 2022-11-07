@@ -64,6 +64,8 @@ let preguntas = [
         ]
 }
 ]
+
+// let cuestionario=elemen
 //tenemos que iterar tres veces porque tenemos 2 objetos y un array
 
 // for (let pregunta of preguntas){
