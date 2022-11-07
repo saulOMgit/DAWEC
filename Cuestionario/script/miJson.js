@@ -64,37 +64,7 @@ let preguntas = [
         ]
 }
 ]
-<<<<<<< Updated upstream
 //tenemos que iterar tres veces porque tenemos 2 objetos y un array
-for (let pregunta of preguntas){
-    console.log("Categoria "+pregunta.categoria);
-   for (let categoria of pregunta.pregunta){
-    console.log(categoria.pregunta)
-    for (let respuesta of categoria.respuestas){
-        console.log(respuesta);
-    }        
-   }
-    
-}
-||||||| constructed merge base
-
-
-
-
-for (let pregunta of preguntas){
-    console.log("Categoria "+pregunta.categoria);
-   for (let categoria of pregunta.pregunta){
-    console.log(categoria.pregunta)
-    for (let respuesta of categoria.respuestas){
-        console.log(respuesta);
-    }        
-   }
-    
-}
-=======
-
-
-
 
 // for (let pregunta of preguntas){
 //     console.log("Categoria "+pregunta.categoria);
@@ -105,4 +75,4 @@ for (let pregunta of preguntas){
 //     }        
 //    }    
 // }
->>>>>>> Stashed changes
+
