@@ -161,7 +161,7 @@ let preguntas = [
             },
             {
                 "modo":"simple",
-                "pregunta":"¿Con que ataque mata Gohan a Celula?",
+                "pregunta":"¿Con que ataque gana Gohan a Celula?",
                 "respuestas":[{"respuesta":"Big Bang Attack","correcta":""},
                 {"respuesta":"Kamehameha","correcta":""},
                 {"respuesta":"Kamehameha Padre-hijo","correcta":"true"},
@@ -180,7 +180,7 @@ let preguntas = [
 //     console.log(categoria.pregunta)
 //     for (let respuesta of categoria.respuestas){
 //         console.log(respuesta);
-//     }        
-//    }    
+//     }
+//    }
 // }
-
+ export{preguntas};
