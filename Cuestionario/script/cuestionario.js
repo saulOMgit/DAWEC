@@ -1,4 +1,6 @@
-import { preguntas } from "./miJson";
+import { preguntas } from "./miJson.js";
+
+// console.log(preguntas)
 
 window.onload = function(){
 
