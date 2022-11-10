@@ -183,4 +183,4 @@ let preguntas = [
 //     }
 //    }
 // }
- export{preguntas};
+ export {preguntas};
