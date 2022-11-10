@@ -1,0 +1,10 @@
+/* Vamos a crear mis primeras variables CSS */
+
+:root{
+    --color-fondo-principal:rgb(237, 177, 82);
+    --color-fondo-panel: beige;
+    --color-enfasis: red;
+    /* --color-enfasis; */
+
+
+}
