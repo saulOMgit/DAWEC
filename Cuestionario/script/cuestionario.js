@@ -9,7 +9,8 @@ window.onload = function(){
     let seccionCuestionario = document.querySelector(".cuestionario");
 
     let contadorCategoria=0;
-
+    let contadorPregunta=0;
+    let contadorRespuesta=0;
     for (let categoria of preguntas){
         contadorCategoria+=1;
         let divEleccionCategoria = document.createElement("div");
@@ -41,6 +42,26 @@ window.onload = function(){
             h1.textContent=categoria.categoria;
             //header
             seccionCuestionario.appendChild(h1);
+            
+            contadorPregunta=0;
+            contadorRespuesta=0;
+            
+            for (let preguntas of categoria.pregunta){
+                let h2=document.createElement("h2");
+                h2.textContent=preguntas.pregunta;
+                seccionCuestionario.appendChild(h2);
+
+                contadorPregunta+=1;
+                for (let respuesta of preguntas.respuestas){
+                    contadorRespuesta+=1;
+                    seccionCuestionario.innerHTML +=`
+                    <input type="radio" name="pregunta${contadorPregunta}" id="pregunta${contadorRespuesta}">
+                    <label for="pregunta${contadorRespuesta}">${respuesta.respuesta}</label>
+                    `;
+                    // p.textContent=respuesta.respuesta;
+                    // seccionCuestionario.appendChild(p);
+                }
+            }
         }
     }
 }
