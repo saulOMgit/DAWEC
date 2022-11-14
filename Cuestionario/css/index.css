@@ -1,0 +1,31 @@
+@import "./variables.css";
+body{
+    margin: 0;
+    padding: 0;
+    /* esto me genera barra de scroll horizontal */
+    height: 100vh;
+    width: 100vw;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 550px;
+}
+
+section{
+    backdrop-filter: blur(10px);
+    background-color: rgb(74, 74, 74);
+    border-radius: 5px;
+    color:white;
+    font-size: .9rem;
+    font-weight: 600;
+    line-height: 1.7rem;
+    text-align: justify;
+    padding: 20px;
+    width: 500px;
+    box-shadow: 12px 18px 12px -6px black;
+}

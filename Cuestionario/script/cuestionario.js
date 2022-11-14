@@ -54,10 +54,18 @@ window.onload = function(){
                 contadorPregunta+=1;
                 for (let respuesta of preguntas.respuestas){
                     contadorRespuesta+=1;
+                    if (preguntas.modo=="simple"){
                     seccionCuestionario.innerHTML +=`
                     <input type="radio" name="pregunta${contadorPregunta}" id="pregunta${contadorRespuesta}">
                     <label for="pregunta${contadorRespuesta}">${respuesta.respuesta}</label>
                     `;
+                    }
+                    else{
+                        seccionCuestionario.innerHTML +=`
+                        <input type="checkbox" name="pregunta${contadorPregunta}" id="pregunta${contadorRespuesta}">
+                        <label for="pregunta${contadorRespuesta}">${respuesta.respuesta}</label>
+                        `;  
+                    }
                     // p.textContent=respuesta.respuesta;
                     // seccionCuestionario.appendChild(p);
                 }
