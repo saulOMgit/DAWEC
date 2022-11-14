@@ -14,7 +14,7 @@ window.onload = function(){
     for (let categoria of preguntas){
         contadorCategoria+=1;
         let divEleccionCategoria = document.createElement("div");
-        // divEleccionCategoria.classList.add("eleccion-materia");
+        divEleccionCategoria.classList.add("eleccion-categoria");
         divEleccionCategoria.innerHTML +=`
         <input type="radio" name="categoria" id="categoria${contadorCategoria}">
         <label for="categoria${contadorCategoria}">${categoria.categoria}</label>
@@ -48,7 +48,7 @@ window.onload = function(){
             
             for (let preguntas of categoria.pregunta){
                 let h2=document.createElement("h2");
-                h2.textContent=preguntas.pregunta;
+                h2.textContent=`${contadorPregunta+1}.`+preguntas.pregunta;
                 seccionCuestionario.appendChild(h2);
 
                 contadorPregunta+=1;
