@@ -67,7 +67,7 @@ let preguntas = [
             },
             {
                 "modo":"simple",
-                "pregunta":"¿Se deberia considerar personas a los jugadores de FIFA/CoD?",
+                "pregunta":"¿Se programan de cero los FIFA/CoD?",
                 "respuestas":[{
                     "respuesta":"Si","correcta":""},
                     {"respuesta":"No","correcta":"true"}]

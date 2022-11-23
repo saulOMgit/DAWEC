@@ -49,27 +49,67 @@ window.onload = function(){
             for (let preguntas of categoria.pregunta){
                 let h2=document.createElement("h2");
                 h2.textContent=`${contadorPregunta+1}.`+preguntas.pregunta;
-                seccionCuestionario.appendChild(h2);
+               
 
                 contadorPregunta+=1;
+                
+                let divpreguntas=document.createElement("div");
+                divpreguntas.className="midivpreguntas";
+                seccionCuestionario.appendChild(divpreguntas);
+                divpreguntas.appendChild(h2);
+                // prueba
+                let divrespuestas=document.createElement("div");
+                divrespuestas.className="midivrespuestas";
+                divpreguntas.appendChild(divrespuestas);
+                // fin prueba
+
+                
                 for (let respuesta of preguntas.respuestas){
                     contadorRespuesta+=1;
+                    let input=document.createElement("input");
+                    let label=document.createElement("label");
+                    input.name=`pregunta${contadorPregunta}`;
+                    input.id=`pregunta${contadorRespuesta}`;
+                    label.setAttribute("for", `pregunta${contadorRespuesta}`);
+                    label.textContent=respuesta.respuesta
+                    
                     if (preguntas.modo=="simple"){
-                    seccionCuestionario.innerHTML +=`
-                    <input type="radio" name="pregunta${contadorPregunta}" id="pregunta${contadorRespuesta}">
-                    <label for="pregunta${contadorRespuesta}">${respuesta.respuesta}</label>
-                    `;
+                    input.type="radio";
                     }
                     else{
-                        seccionCuestionario.innerHTML +=`
-                        <input type="checkbox" name="pregunta${contadorPregunta}" id="pregunta${contadorRespuesta}">
-                        <label for="pregunta${contadorRespuesta}">${respuesta.respuesta}</label>
-                        `;  
+                        input.type="checkbox";
                     }
-                    // p.textContent=respuesta.respuesta;
-                    // seccionCuestionario.appendChild(p);
+                    
+                    // seccionCuestionario.appendChild(input);
+                    // seccionCuestionario.appendChild(label);                    
+                    divrespuestas.appendChild(input);
+                    divrespuestas.appendChild(label);
                 }
+                // for (let respuesta of preguntas.respuestas){
+                //     contadorRespuesta+=1;
+                //     if (preguntas.modo=="simple"){
+                //     let input=document.createElement("input");
+                    
+                //     input.name=contadorPregunta;
+                //     seccionCuestionario.innerHTML +=`                    
+                //     <input type="radio" name="pregunta${contadorPregunta}" id="pregunta${contadorRespuesta}">
+                //     <label for="pregunta${contadorRespuesta}">${respuesta.respuesta}</label>
+                //     `;
+                //     }
+                //     else{
+                //         seccionCuestionario.innerHTML +=`
+                //         <input type="checkbox" name="pregunta${contadorPregunta}" id="pregunta${contadorRespuesta}">
+                //         <label for="pregunta${contadorRespuesta}">${respuesta.respuesta}</label>
+                //         `;  
+                //     }
+                //     // p.textContent=respuesta.respuesta;
+                //     // seccionCuestionario.appendChild(p);
+                // }
             }
+            let button=document.createElement("button");
+            button.textContent="Enviar";
+            button.
+            seccionCuestionario.appendChild(button);
         }
     }
 }

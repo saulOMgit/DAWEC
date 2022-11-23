@@ -61,3 +61,34 @@ nav .eleccion-categoria label:hover{
 nav .eleccion-categoria input[type=radio]:checked+label{
     background-color: var(--color-enfasis-fondo);
 }
+/*  */
+section h1{
+    text-transform: capitalize;
+    color: white;
+}
+
+section input{
+    display: none;
+}
+
+section input:checked+label{
+    background-color: aqua;
+}
+
+.midivpreguntas{
+    background-color: white;
+    text-align: center;
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+
+.midivrespuestas label{
+    display: flex;
+    justify-content:center;
+   
+    align-items: center;
+    width: 50%;
+    vertical-align: middle;
+}
