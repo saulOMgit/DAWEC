@@ -79,37 +79,33 @@ window.onload = function(){
                     else{
                         input.type="checkbox";
                     }
-                    
-                    // seccionCuestionario.appendChild(input);
-                    // seccionCuestionario.appendChild(label);                    
+                              
                     divrespuestas.appendChild(input);
                     divrespuestas.appendChild(label);
                 }
-                // for (let respuesta of preguntas.respuestas){
-                //     contadorRespuesta+=1;
-                //     if (preguntas.modo=="simple"){
-                //     let input=document.createElement("input");
-                    
-                //     input.name=contadorPregunta;
-                //     seccionCuestionario.innerHTML +=`                    
-                //     <input type="radio" name="pregunta${contadorPregunta}" id="pregunta${contadorRespuesta}">
-                //     <label for="pregunta${contadorRespuesta}">${respuesta.respuesta}</label>
-                //     `;
-                //     }
-                //     else{
-                //         seccionCuestionario.innerHTML +=`
-                //         <input type="checkbox" name="pregunta${contadorPregunta}" id="pregunta${contadorRespuesta}">
-                //         <label for="pregunta${contadorRespuesta}">${respuesta.respuesta}</label>
-                //         `;  
-                //     }
-                //     // p.textContent=respuesta.respuesta;
-                //     // seccionCuestionario.appendChild(p);
-                // }
+            
             }
-            let button=document.createElement("button");
-            button.textContent="Enviar";
-            button.
-            seccionCuestionario.appendChild(button);
+            
         }
+        let button=document.createElement("button");
+            button.textContent="Enviar";
+            seccionCuestionario.appendChild(button);
+            let miboton=document.querySelector("button");
+            miboton.addEventListener("click",correcion);
+    }
+    
+
+    
+    function correcion(){
+        let numero=seccionCuestionario.querySelectorAll(".midivpreguntas").length;
+        let categoria=this.nextElementSibling.textContent;
+        cuestionario=preguntas.filter(elementos => elementos.categoria.includes(categoria));
+        // for (let categoria of cuestionario){
+        //     for (let pregunta of categoria.pregunta){
+        //         for(let respuesta of pregunta.pregunta)
+        //     }
+
+        // }
+        alert(numero);
     }
 }
