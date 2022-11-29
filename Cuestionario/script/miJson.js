@@ -2,6 +2,7 @@ let preguntas = [
     //creamos un objeto
 {
     "categoria":"gaming",
+    // "imagen":,
     //que a su vez tiene otro objeto
     "pregunta":[
             {
@@ -80,6 +81,15 @@ let preguntas = [
                     {"respuesta":"Furbo","correcta":"true"},
                     {"respuesta":"RPG","correcta":"true"},
                     {"respuesta":"No Binario","correcta":""}]
+            },
+            {
+                "modo":"simple",
+                "pregunta":"¿Cual o cuales de estas consolas tiene mas años que Termi55?",
+                "respuestas":[{
+                    "respuesta":"Nintendo 64","correcta":""},
+                    {"respuesta":"Game Boy Advance","correcta":""},
+                    {"respuesta":"PlayStation 5","correcta":""},
+                    {"respuesta":"Todas son correctas","correcta":"true"}]
             }
         ]
 },

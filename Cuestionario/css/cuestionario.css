@@ -6,11 +6,20 @@ body,p,span{
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: GameBoy;
+    src: url(../fonts/Early_GameBoy.ttf);
+ }
+*{
+    font-family: GameBoy;
+    
+}
 body{
     color:black;
-    background-color: var(--color-fondo-principal);
+    background-image: var(--color-fondo-principal);
+    background-size: cover;
     font-size: 16px;
-    font-family: var(--fuente-principal);
+    /* font-family: var(--fuente-principal); */
     min-width: 480px;
 }
 
@@ -43,6 +52,7 @@ nav{
 nav .eleccion-categoria input{
     display: none;
 }
+
 nav .eleccion-categoria label{
     background-color: var(--color-enfasis);
     color: white;
@@ -66,16 +76,18 @@ section h1{
     text-transform: capitalize;
     color: white;
 }
-
+h2{
+    border-bottom: 5px solid rgb(21, 150, 21);
+}
 section input{
     display: none;
 }
 
 section input:checked+label{
-    background-color: aqua;
+    background-color: hotpink;
 }
 
-.midivpreguntas{
+.miarticlepreguntas{
     background-color: white;
     text-align: center;
     width: 50%;
@@ -84,11 +96,20 @@ section input:checked+label{
 }
 
 
-.midivrespuestas label{
+.miarticlepreguntas label{
     display: flex;
-    justify-content:center;
-   
-    align-items: center;
-    width: 50%;
-    vertical-align: middle;
+    justify-content:center;    
 }
+
+.envoltorio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    }
+button{
+    width: 150px;
+    height: 100px;
+}
+
+

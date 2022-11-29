@@ -1,12 +1,13 @@
 /* Vamos a crear mis primeras variables CSS */
 
 :root{
-    --color-fondo-principal:rgb(237, 177, 82);
+    /* --color-fondo-principal:rgb(237, 177, 82); */
+    --color-fondo-principal: url(../img/fondo.jpg);
     --color-fondo-panel: beige;
     --color-enfasis: red;
     --color-enfasis-fondo:rgb(88, 14, 14);
     --color-checked: rgb(66, 180, 233);
     --fuente-principal:'Monsterrat',sans-serif;
-
+    --fuente-titulo:'Kingdom';
 
 }

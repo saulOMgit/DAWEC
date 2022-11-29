@@ -1,0 +1,103 @@
+/* reseteo de estilos */
+*{
+    margin: 0;
+    padding: 0;
+}
+/* Alineo a al centro, y doy otras propiedades de estilo basicas */
+header{
+    background-color: rgb(255, 174, 0);
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    font-size: 32px;
+    color: white;
+    border-bottom: 5px solid black;
+}
+/* Le decimos al section que se comporte como tabla */
+section{
+    width: 100%;
+    display: table;
+    content: "";
+    
+}
+
+/* de las dos table cell a una le asignamos un 70%, porque se ve que en el enunciado ocupa bastante mas que la restante */
+.listaproducto{
+    width: 70%;
+}
+article{
+    display: table-cell;
+    background-color: rgb(225, 188, 146);
+}
+/* la clase mi producto tambien se comportara como una */
+.miproducto{
+    display: table;
+    border-bottom: 4px solid orange;
+    margin-bottom: 10px;
+    
+}
+
+.mifoto,.midescripcion{
+    display: table-cell;
+}
+.mifoto img{
+    width: 300px;
+    height: 200px;
+    box-shadow: 10px 10px 10px black;
+    margin-bottom: 20px;
+    
+}
+.mifoto{
+    width: 20%;
+}
+/* necesito un vertical aling porque si no me */
+/* lo pintaria en el fondo inferior */
+.midescripcion{
+    width: 80%;
+    vertical-align: top;
+    
+}
+.midescripcion h4{
+    width: 100%;
+    border-bottom: dotted 3px gray;
+    font-size: 200%;
+    color: orange;
+    
+    
+}
+.midescripcion h4,.midescripcion p, .midescripcion button{
+    margin-left: 25px;
+}
+/* Capitaliza solo la primera letra */
+.midescripcion h4::first-letter{
+    text-transform: capitalize;
+}
+
+/* Estilizamos el boton para que se parezca */
+/* al del enunciado */
+.midescripcion button{
+    background-color: orange;
+    margin-right: 300px;
+    width: 100px;
+    height: 30px;
+    border:0;
+    margin-top: 5px;
+
+}
+.grupos{
+    background-color: white;
+}
+/* no logro poner el los div arriba del todo */
+.grupo{
+ color: white;
+ font-size: 200% ;
+ text-decoration: underline white;
+ margin-bottom: 20px;
+
+}
+.GA{
+    background-color: rgb(255, 174, 0);
+}
+.GB{
+    background-color: rgb(205, 96, 18);
+}

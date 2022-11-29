@@ -53,15 +53,12 @@ window.onload = function(){
 
                 contadorPregunta+=1;
                 
-                let divpreguntas=document.createElement("div");
-                divpreguntas.className="midivpreguntas";
-                seccionCuestionario.appendChild(divpreguntas);
-                divpreguntas.appendChild(h2);
-                // prueba
-                let divrespuestas=document.createElement("div");
-                divrespuestas.className="midivrespuestas";
-                divpreguntas.appendChild(divrespuestas);
-                // fin prueba
+                let articlepreguntas=document.createElement("article");
+                articlepreguntas.className="miarticlepreguntas";
+                seccionCuestionario.appendChild(articlepreguntas);
+                articlepreguntas.appendChild(h2);
+                
+                
 
                 
                 for (let respuesta of preguntas.respuestas){
@@ -70,6 +67,11 @@ window.onload = function(){
                     let label=document.createElement("label");
                     input.name=`pregunta${contadorPregunta}`;
                     input.id=`pregunta${contadorRespuesta}`;
+                    if (respuesta.correcta=="true"){
+                        input.setAttribute("value","t");
+                    } else {
+                        input.setAttribute("value","f");
+                    }
                     label.setAttribute("for", `pregunta${contadorRespuesta}`);
                     label.textContent=respuesta.respuesta
                     
@@ -80,8 +82,8 @@ window.onload = function(){
                         input.type="checkbox";
                     }
                               
-                    divrespuestas.appendChild(input);
-                    divrespuestas.appendChild(label);
+                    articlepreguntas.appendChild(input);
+                    articlepreguntas.appendChild(label);
                 }
             
             }
@@ -89,7 +91,11 @@ window.onload = function(){
         }
         let button=document.createElement("button");
             button.textContent="Enviar";
-            seccionCuestionario.appendChild(button);
+        let envoltorio=document.createElement("div");
+        envoltorio.className="envoltorio";
+            seccionCuestionario.appendChild(envoltorio);
+            envoltorio.appendChild(button);
+            // seccionCuestionario.appendChild(button);
             let miboton=document.querySelector("button");
             miboton.addEventListener("click",correcion);
     }
@@ -97,15 +103,33 @@ window.onload = function(){
 
     
     function correcion(){
-        let numero=seccionCuestionario.querySelectorAll(".midivpreguntas").length;
-        let categoria=this.nextElementSibling.textContent;
-        cuestionario=preguntas.filter(elementos => elementos.categoria.includes(categoria));
-        // for (let categoria of cuestionario){
-        //     for (let pregunta of categoria.pregunta){
-        //         for(let respuesta of pregunta.pregunta)
-        //     }
+         let preg=document.querySelectorAll("article input");        
+         let  numCorrecta=0;
+         let numcheck=0;
+         let numResp=0;
+         for (let p of preg){
+             if(p.checked && p.value=="t"){
+                if(p.type=="checkbox"){
+                    let checkbox=document.querySelectorAll("input[name="+p.name+"]");
+                    for (let check of checkbox){                        
+                        if (check.value=="t"){
+                            numcheck+=1;
+                            if (check.checked){
+                                numResp+=1;
+                            }
+                        }
+                    }
+                    numResp=numResp/numcheck;
+                    numCorrecta=numCorrecta+numResp;
 
-        // }
-        alert(numero);
+
+                } else
+                numCorrecta+=1;                
+             }
+            
+         }
+        //  alert(numCorrecta);
+         
+         ;
     }
 }
