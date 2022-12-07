@@ -2,7 +2,7 @@ let preguntas = [
     //creamos un objeto
 {
     "categoria":"gaming",
-    // "imagen":,
+    "imagen":"game.png",
     //que a su vez tiene otro objeto
     "pregunta":[
             {
@@ -95,6 +95,7 @@ let preguntas = [
 },
 {
     "categoria":"anime",
+    "imagen":"ereh.png",
     "pregunta":[
             {
                 "modo":"simple",
@@ -117,7 +118,7 @@ let preguntas = [
                 "modo":"multi",
                 "pregunta":"¿Cuales de estos animes esta animado por Mappa?",
                 "respuestas":[{"respuesta":"FMA: Brotherhood","correcta":""},
-                {"respuesta":"Shingeki no Kyojin s4","correcta":""},
+                {"respuesta":"Shingeki no Kyojin s4","correcta":"true"},
                 {"respuesta":"Kimetsu no Yaiba","correcta":""},
                 {"respuesta":"Danse Danse Danceur","correcta":"true"}]
             },
