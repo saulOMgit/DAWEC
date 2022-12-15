@@ -71,30 +71,27 @@ window.onload = function(){
         //mi idea de esto era iterar los productos ( a los cuales les he dado como clase el nombre del producto)
         //no funciona, pero es una idea creo que aproximada, no se lo que fallara, lo dejo descomentado por si es de utilidad
         //(y porque me gustaria darle solucion)
-        function asigna(){
-            let divasignado=createElement("div");
-            let fotoasignada=createElement("img");
-            let pasignado=createElement("p");
-            
-            for (let producto of productos){
-                if (boton.className==producto.denominacion){            
-                    fotoasignada.setAttribute("src",`./imagenes/${producto.foto}`);
-                    fotoasignada.setAttribute("alt",producto.denominacion);
-                    fotoasignada.setAttribute("title",producto.denominacion);
-                    pasignado.textContent=producto.comentario;
-
-                    divasignado.appendChild(fotoasignada);
-                    divasignado.appendChild(pasignado);
-                }
-            }
-            //Esto eliminaria el evento despues de haber operado con el
-            boton.removeEventListener;
-           
-
-            
-        }
+    
     }
+    function asigna(){
+        let divasignado=createElement("div");
+        let fotoasignada=createElement("img");
+        let pasignado=createElement("p");
+        
+        for (let producto of productos){
+            if (boton.className==producto.denominacion){            
+                fotoasignada.setAttribute("src",`./imagenes/${producto.foto}`);
+                fotoasignada.setAttribute("alt",producto.denominacion);
+                fotoasignada.setAttribute("title",producto.denominacion);
+                pasignado.textContent=producto.comentario;
 
+                divasignado.appendChild(fotoasignada);
+                divasignado.appendChild(pasignado);
+            }
+        }
+        //Esto eliminaria el evento despues de haber operado con el
+        boton.removeEventListener;     
+    }
     //creacion de grupos
     let divGA= document.createElement("div");
     divGA.className="grupo GA";    
