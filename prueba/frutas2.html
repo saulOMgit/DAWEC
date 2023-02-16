@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>JavaScript Map Objects</h2>
+    <p>Using Map.set():</p>
+
+    <p id="demo"></p>
+
+    <script>
+      window.onload = function () {
+        async function f() {
+          const response = await fetch("./frutas.json");
+          const frutas = await response.json();
+
+          insertar(frutas);
+        }
+
+        function insertar(frutas) {
+          // Create a Map
+          const fruits = new Map();
+
+          for (let fruta of frutas) {
+            if (fruits.has(fruta.fruta)) {
+              fruits.set(fruta.fruta, fruits.get(fruta.fruta) + fruta.cantidad);
+            } else {
+              fruits.set(fruta.fruta, fruta.cantidad);
+            }
+
+            // document.getElementById("demo").innerHTML += `Fruta: ${fruta.fruta} Cantidad:${fruits.get(fruta.fruta)}`;
+          }
+          console.log(fruits.has("manzana"));
+          // document.getElementById("demo").innerHTML = fruits.get("manzana");
+
+          imprimir(fruits);
+        }
+
+        function imprimir(fruits) {
+          let mitabla= document.createElement("table");
+          
+          for (let [nombre, cantidad] of fruits) {
+            let mitr=document.createElement("tr");
+            let mitd1=document.createElement("td");
+            let mitd2=document.createElement("td");
+            mitd1.textContent=`Fruta: ${nombre} `;
+            mitr.appendChild(mitd1);
+            mitd2.textContent=`Cantidad:${cantidad}`;
+            mitr.appendChild(mitd2);
+            // document.getElementById(
+            //   "demo"
+            // ).innerHTML += `Fruta: ${nombre} Cantidad:${cantidad}<br/>`;
+
+            mitabla.appendChild(mitr);
+          }
+          document.body.appendChild(mitabla);
+        }
+
+        f();
+      };
+    </script>
+  </body>
+</html>

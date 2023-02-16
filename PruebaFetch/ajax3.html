@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax 3 - API que devuelve JSON externo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 16px;
+            background-color: #F2F2F2;
+            color: black;
+            margin: 10px auto;
+            width: 80%;
+        }
+
+        .users {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+            gap: 30px;
+        }
+
+        .user {
+            flex-basis: 200px;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .user ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        /* .user img {
+            display: block;
+            margin: 0 auto;
+        } */
+    </style>
+</head>
+
+<body>
+    <button id="button">Leer usuarios de GitHub</button>
+    <br><br>
+    <h1>Usuarios de Github</h1>
+    <div class="users"></div>
+
+    <script>
+        document.getElementById('button').addEventListener('click', loadUsers);
+
+        // Lee usurios de Github 
+        function loadUsers() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://api.github.com/users', true);
+
+            //Petición que produce onerror
+            // xhr.open("GET", "https://developer.mozilla.org/", true);
+
+            xhr.onload = function () {
+                if (this.status == 200) {
+                    var users = JSON.parse(this.responseText);
+
+                    var output = '';
+                    for (let user of users) {
+                        output += `
+                            <div class="user">
+                            <img src="${user.avatar_url}" width="90" height="90">
+                            <ul>
+                              <li>ID:  ${user.id} </li> 
+                              <li>Login:  ${user.login} </li> 
+                            </ul> 
+                            </div>
+                            `;
+                    }
+
+                    document.querySelector('.users').innerHTML = output;
+                }
+            }
+
+            xhr.onerror = function () {
+                document.querySelector('.users').innerHTML = "Se ha producido un error en la petición";
+            }
+
+            xhr.send();
+        }
+    </script>
+</body>
+
+</html>

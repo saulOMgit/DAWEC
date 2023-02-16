@@ -1,0 +1,18 @@
+[
+    {
+        "fruta":"manzana",
+        "cantidad":500
+    },
+    {
+        "fruta":"pera",
+        "cantidad":300
+    },
+    {
+        "fruta":"aguacate",
+        "cantidad":400
+    },
+    {
+        "fruta":"manzana",
+        "cantidad":200
+    }
+]
