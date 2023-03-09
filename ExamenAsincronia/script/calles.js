@@ -15,11 +15,14 @@ window.onload = function () {
     //Llamamos a imprimir
     imprimir(filtrado);
   }
-
+  function numeroAccesos(calle) {
+    //Si los accesos son superiores al numero introducido en el input, nos lo mete en el nuevo array
+    return calle.nÚmeroaccesos >= numero.value;
+  }
   let myul = document.createElement("ul");
   let numero = document.querySelector(".numero");
   let mydiv = document.querySelector(".datos");
-
+  let mapita = new Map();
   //Ejercicio 1
   function imprimir(calles) {
     //Limpiamos los datos que pudiera haber
@@ -40,54 +43,54 @@ window.onload = function () {
 
         myli.innerHTML = `Calle ${calle.nombre} - <span class="enfasis">Tipo</span> ${calle.tipo}, nº de accesos: <span class="enfasis">${calle.nÚmeroaccesos}</span>`;
         myul.appendChild(myli);
+        mapita.set(calle.tipo,0);
       }
 
-      cargaPortales(calles);
+      cargaPortales();
     }
     mydiv.appendChild(myul);
     document.body.appendChild(mydiv);
   }
 
-  function numeroAccesos(calle) {
-    //Si los accesos son superiores al numero introducido en el input, nos lo mete en el nuevo array
-    return calle.nÚmeroaccesos >= numero.value;
-  }
+
 
   //Ejercicio 2
-  async function cargaPortales(calles) {
+  async function cargaPortales() {
     const response = await fetch(
       "https://opendata.gijon.es/descargar.php?id=33&tipo=JSON"
     );
     const portales = await response.json();
 
-    imprimirNumPortales(portales, calles);
+    imprimirNumPortales(portales);
   }
 
   //Incompleto pero con una muestra de lo que queria transmitir
-  function imprimirNumPortales(portales, calles) {
+  function imprimirNumPortales(portales) {
     let myEncabezado2 = document.createElement("h1");
     myEncabezado2.textContent = `Numero de Portales por tipo de calle`;
     mydiv.appendChild(myEncabezado2);
 
+    
+    let nuevoCont=0;
     contadorCalle = 0;
     contadorCtra = 0;
     contadorAvda = 0;
     contadorCamin = 0;
     for (let portal of portales.portales.portal) {
-      for (let calle of calles) {
-        if (calle.calle == portal.calle) {
-          switch (calle.tipo) {
-            case "CALLE":
-              contadorCalle += portal.numero;
-              break;
-            case "A":
-              break;
-          }
+      
+        if (mapita.has(portal.tipo)){          
+          let contador=mapita.get(portal.tipo);
+          contador++;
+          mapita.set(portal.tipo,contador);
         }
-      }
+      
+      
     }
     let misCalles = document.createElement("p");
-    misCalles.textContent = `Calle: ${contadorCalle}`;
+    
+    for ([tipo,numerop] of mapita){
+      misCalles.innerHTML+=tipo+": "+numerop+`<br/>`;
+    }
     mydiv.appendChild(misCalles);
   }
 };

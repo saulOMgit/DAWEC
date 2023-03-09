@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/daec488c78.js" crossorigin="anonymous"></script>
+    <title>Calles</title>
+    <script>
+        window.onload=function(){
+
+            //El evento que hará todo
+            var correcto= false;
+            var boton = document.querySelector("button").addEventListener("click",comienzaPrograma);
+            var cuerpoejercicio1 = document.querySelector(".cuerpo__ejercicio1");
+            var ejercicio2 = document.querySelector(".cuerpo__ejercicio2");
+            //El apartado dos depende del uno, si el uno no responde ningun valor, si no da resultado entonces no se ejecutará
+            function comienzaPrograma(){
+                cuerpoejercicio1.innerHTML="";
+                ejercicio2.innerHTML="";
+               
+
+                return new Promise((resolve,reject)=>{
+                    //Primera condicion la llamada a la funcion asincrona que carga el primer programa
+                    if(recuperaCalles()){
+                        resolve(recuperaTipoCalles());
+                    }else{
+                        reject(pintaFallo());
+                    }
+
+                    
+                });
+            }
+
+            //Ejecuto la promesa
+
+            comienzaPrograma()
+                .catch(mensaje => console.log(mensaje));
+
+            function pintaFallo(){
+                ejercicio2.innerHTML="";
+                cuerpoejercicio1.innerHTML="No existen portales con esas caracteristicas";
+            }
+            
+            //Almacenaré datos del ejercicio 2
+              var miMap = new Map();  
+              var miSet = new Set();
+             //Primer ejercicio function asincrona
+            async function recuperaCalles(){
+                const response = await fetch("https://opendata.gijon.es/descargar.php?id=179&tipo=JSON");
+                const calles = await response.json();
+                //Llamada a la funcion que tratara las calles
+                let valor=trataCalles(calles);
+                if(valor){
+                    return true;
+                }else{
+                    return false;
+                    ejercicio2.innerHTML="";
+                }
+            }
+            //Funcion que trata las calles
+            function trataCalles(calles){
+                //Primero recupero el valor que esta en el input
+                var contadorAccesos = document.querySelector("input").value;
+                //Creo el subtitulo correspondiente
+                
+                var subtitulo= document.createElement("h2");
+                subtitulo.classList.add("ejercicio__subtitulo");
+                subtitulo.textContent="Calles con accesos superiores a: "+contadorAccesos;
+                cuerpoejercicio1.appendChild(subtitulo);
+                var lista = document.createElement("ul");
+                lista.classList.add("ejercicio__lista");
+                cuerpoejercicio1.appendChild(lista);
+                //Aqui filtramos y pintamos las calles
+                for (const calle of calles.calles.calle) {
+                    //Si el acceso a la calle es superior al contador...
+                    if(calle["nÚmeroaccesos"]>contadorAccesos){
+                        lista.innerHTML+=`<li>${calle.nombre} <strong>${calle.tipo}</strong>  <strong>${calle["nÚmeroaccesos"]}</strong></li>`
+                        miSet.add(calle.tipo);
+                        correcto=true;
+                    }
+                    
+                }
+                if(correcto==true){
+                 
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+
+            //Funcion asincrona del ejercicio 2
+            async function recuperaTipoCalles(){
+                const response = await fetch("https://opendata.gijon.es/descargar.php?id=33&tipo=JSON");
+                const tipoCalles= await response.json();
+                //Funcion que realizara
+                trataTipoCalle(tipoCalles);
+            }
+
+            function trataTipoCalle(tipoCalles){
+                //Primero comprobaré si el tipo de la calle existe en mi set
+                var contadorPortales=1;
+                var nuevoV =0;
+                for (let tipo of tipoCalles.portales.portal) {
+                    if(miSet.has(tipo.tipo)){//Si se encuentra dentro del set entonces lo guardaremos en un map
+                        if((miMap.has(tipo.tipo))){
+                        let valor = miMap.get(tipo.tipo);
+                        console.log(tipo.tipo);
+                        console.log(miMap.get(tipo.tipo));
+                        nuevoV = valor+1;
+                        miMap.set(tipo.tipo,nuevoV);
+                        }else{
+                            miMap.set(tipo.tipo,contadorPortales);
+                        }
+                       
+                    }
+                }
+                
+                //Pintamos el map desestructurandolo
+                
+                var subtitulo2 = document.createElement("h3");
+                subtitulo2.classList.add("ejercicio2__subtitulo");
+                subtitulo2.textContent= "Numero de portales por tipo de calle";
+                ejercicio2.appendChild(subtitulo2);
+                var lista2 = document.createElement("ul");
+                lista2.classList.add("ejercicio2__lista");
+                ejercicio2.appendChild(lista2);
+                for (let [clave,valor] of miMap) {
+                    lista2.innerHTML+=`
+                    <li> ${clave} ---> ${valor} </li>
+                    `
+                }
+            }
+
+
+
+
+            // recuperaCalles();
+            // recuperaTipoCalles();
+        }
+    </script>
+</head>
+<body>
+    <header class="encabezado">
+        <h1>Calles Gijón</h1>
+    </header>
+    <section class="cuerpo">
+        <div class="cuerpo__formulario">
+            <label class="formulario__label" for="num">Introduce el nº de accesos a tratar</label>
+            <input class="formulario__display" type="number" step="0" value="100">
+            <button class="formulario__boton">Empezar</button>
+        </div>
+        <div class="cuerpo__ejercicio1"></div>
+        <div class="cuerpo__ejercicio2"></div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.origen,
+.destino {
+    display: inline-block;
+    margin: 20px 40px;
+    width: 300px;
+    height: 400px;
+    border: 2px solid grey;
+}
+
+li {
+    font-size: 1.4em;
+    line-height: 1.7em;
+    margin-left: 20px;
+    padding: 5px;
+    width: 140px;
+    cursor: pointer;
+}
+
+.item-seleccionado {
+    background-color: lightsteelblue;
+    color: blue;
+}
+
+.item-over {
+    border: 2px dotted red;
+}
