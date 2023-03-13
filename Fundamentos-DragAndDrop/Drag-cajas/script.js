@@ -38,6 +38,7 @@ function drop(e) {
 
     // Obtiene el elemento dragable
     const id = e.dataTransfer.getData('text/plain');
+    console.log(id);
     const draggable = document.getElementById(id);
 
     // Añade elemento dragable a destino sobre el que se suelta

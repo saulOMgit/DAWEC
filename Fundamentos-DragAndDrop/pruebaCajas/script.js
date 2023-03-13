@@ -12,34 +12,50 @@ window.onload = function(){
     const cajas = document.querySelectorAll('.caja');
 
     cajas.forEach(caja =>{
-        caja.addEventListener('dragenter',dragEnter);
         caja.addEventListener('dragover', dragOver);
-        caja.addEventListener('dragleave', dragLeave);
         caja.addEventListener('drop',drop);
+
+
+        caja.addEventListener('dragenter',dragEnter);
+        caja.addEventListener('dragleave', dragLeave);
     })
+    
+    function dragOver(e) {
+        e.preventDefault();
+        e.target.classList.add('drag-over');
+    }
+
+    function drop(e) {
+        e.target.classList.remove('drag-over');
+    
+        // Obtiene el elemento dragable
+        const id = e.dataTransfer.getData('text/plain');
+        if (id=="sora"){
+            console.log(id);
+            const draggable = document.getElementById(id);
+            // Añade elemento dragable a destino sobre el que se suelta
+            e.target.appendChild(draggable);
+            e.target.classList.add("acierto");
+        } else{
+            e.target.classList.add("fallo");
+            setTimeout(()=> e.target.classList.remove("fallo"),100);
+        }        
+    }
 
     function dragEnter(e) {
         e.preventDefault();
         e.target.classList.add('drag-over');
     }
     
-    function dragOver(e) {
-        e.preventDefault();
-        e.target.classList.add('drag-over');
-    }
     
     function dragLeave(e) {
         e.target.classList.remove('drag-over');
     }
     
-    function drop(e) {
-        e.target.classList.remove('drag-over');
-    
-        // Obtiene el elemento dragable
-        const id = e.dataTransfer.getData('text/plain');
-        const draggable = document.getElementById(id);
-    
-        // Añade elemento dragable a destino sobre el que se suelta
-        e.target.appendChild(draggable);
+    //Boton repetir
+    document.querySelector('.repetir').addEventListener("click",Repetir);
+
+    function Repetir(){
+        window.location.reload;
     }
 }

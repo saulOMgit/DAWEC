@@ -13,10 +13,10 @@ window.onload = function() {
     }
 
     //Asignamos manejadores de eventos Drag and Drop a destino
-    destino.addEventListener("dragenter", dragEnter);
     destino.addEventListener("dragover", dragOver);
-    destino.addEventListener("dragleave", dragLeave);
     destino.addEventListener("drop", drop);
+    destino.addEventListener("dragenter", dragEnter);
+    destino.addEventListener("dragleave", dragLeave);
 
     //Funciones manejadoras de eventos
     function dragStart(ev) {
