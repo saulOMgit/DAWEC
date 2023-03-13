@@ -1,0 +1,17 @@
+[
+    {
+        "id":1,
+        "nombre":"sora",
+        "ruta":"./img/sora.png"
+    },
+    {
+        "id":2,
+        "nombre":"riku",
+        "ruta":"./img/riku.jpg"
+    },
+    {
+        "id":3,
+        "nombre":"kairi",
+        "ruta":"./img/kairi.jpg"
+    }
+]

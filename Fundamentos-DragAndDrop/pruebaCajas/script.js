@@ -56,6 +56,6 @@ window.onload = function(){
     document.querySelector('.repetir').addEventListener("click",Repetir);
 
     function Repetir(){
-        window.location.reload;
+        window.location.reload();
     }
 }

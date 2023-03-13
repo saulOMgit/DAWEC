@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     margin: 20px;
+    background-color: rgb(59, 57, 57);
 }
 .objetivos {
     display: flex;
@@ -43,6 +44,11 @@ img{
     background-color: rgba(255, 0, 0, 0.474);
 }
 
+.espacioimagenes{
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+}
 
 /* boton repetir */
 .repetir{
