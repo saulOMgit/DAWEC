@@ -6,6 +6,7 @@
     align-items: center;
     margin: 20px;
     background-color: rgb(59, 57, 57);
+    color: white;
 }
 .objetivos {
     display: flex;
